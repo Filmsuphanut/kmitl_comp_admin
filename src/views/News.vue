@@ -31,7 +31,7 @@
         </div>
         <div class="col-6 mt-1 d-flex flex-column">
           <h4 class="text text-start">{{neww.Header}}</h4>
-          <p class="text text-start">{{neww.Body.length <= 250 ? neww.Body : neww.Body.substring(0,250) + "....."}}</p>
+          <p class="text text-start">{{neww.Body.length <= 250 ? neww.Body : neww.Body.substring(0,240) + "....."}}</p>
         </div>
       </div>
       <div class="row">
@@ -71,7 +71,7 @@ export default {
   methods:{
     callNewsData(){
       this.News.push({
-        imageURL: "https://pbs.twimg.com/media/FdtkzjjaUAIoYZk?format=jpg&name=4096x4096",
+        imageURL: "https://scontent.fbkk5-4.fna.fbcdn.net/v/t39.30808-6/243067731_1753991538324298_8549916390031069303_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFbOjmfKP4MS9AanpLG0Mecz3COCiw7G_3PcI4KLDsb_b3lNo4UckEk-xq4oWt0OCoyzWVMYa03GRCiTwnVSNUV&_nc_ohc=i0nfMX_AkFMAX-9r_xl&_nc_ht=scontent.fbkk5-4.fna&oh=00_AfBu9Zzy_0omMc_41RcTytJP7PtuIpDpm9sMZtoVrUgJ0g&oe=63708403",
         Header: "สุขสันต์วันเกิดนะเต่า <3 !!",
         Body: "ถึงจะเป็นสถานที่เดิม แต่ความรู้สึกทุกครั้งที่มากลับไม่เคยเหมือนเดิม....ช่วงเวลาแห่งความสุขนั้นช่างแสนสั้น บางทีนั่นอาจเป็นเหตุผลว่าทำไมฉันถึงหวงแหนมันเหลือเกิน เธอจะช่วยรับดอกไม้ช่อนี้ไว้ได้มั้ย?ฉันหวังว่า...กลิ่นหอมของดอกไม้นี้จะคอยอยู่เคียงข้างเธอเสมอ"
       })
@@ -80,6 +80,7 @@ export default {
         Header: "สุขสันต์วันเกิดยัยตัวแสบอิอิ !!",
         Body: "แฮ่! ตกใจล่ะสิ? มาดูกันว่า ใครจะเป็นคนแรกที่มาหาหัวหน้าโถงฯ ในวันเกิดกันน้า~ พูดกันตามตรง พวกวัตถุโบราณในโถงพวกนั้น ปากถึงจะพูดอวยพร แต่แป๊บเดียวก็เริ่มพูดจาวกกลับไปที่ความคิดโบราณคร่ำครึพวกนั้นอีก ถึงฉันจะมีวิธีโน้มน้าวพวกเขา แต่ก็ไม่อยากเสียเวลาไปกับเรื่องแบบนี้ทั้งวันนะ ในที่สุดเธอก็มา อย่างที่ฉันหวังไว้เลย! รีบไปกัน ๆ ฉันจองที่นั่งในโรงน้ำชาไว้แล้ว พวกเราไปจิบชาไปพลางแต่งบทกวีไปพลาง พร้อมคุยเรื่องต่าง ๆ ด้วยกันเถอะ!"
       })
+
     }
   },
 
@@ -108,8 +109,9 @@ export default {
 .pic{
   /* display: block; */
   height:260px;
-  width:260px;/*maintain aspect ratio*/
+  width:260px;
   object-fit: cover;
+
 }
 
 .text {
