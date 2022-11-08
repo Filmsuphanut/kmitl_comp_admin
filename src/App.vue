@@ -1,10 +1,11 @@
 <template>
-	<div class="slide">
+	<div class="position-fixed sticky-top">
 		<SideBar/>
 	</div>
-	<div class="app" >
+	<div class="app">
 		<router-view/>
 	</div>
+
 </template>
 
 <script>
@@ -71,7 +72,7 @@ button {
 }
 
 .slide {
-	display: flex;
+	/* display: flex; */
 	position: fixed;
 }
 
