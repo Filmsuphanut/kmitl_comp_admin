@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
-//import Home from '../views/Home.vue'
 import Map from '../views/Map.vue'
 import News from '../views/News.vue'
 import Profile from '../views/Profile.vue'
-//import About from '../views/AboutView.vue'
+import Login from '../views/Login.vue'
 
 const routes = [
   // {
@@ -21,7 +21,12 @@ const routes = [
   //   // component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   // },
   {
-    path: '/',
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/home',
     name: 'home',
     component: HomeView
   },

@@ -13,7 +13,7 @@
 
 		<h3>เมนู</h3>
 		<div class="menu">
-			<router-link to="/" class="button">
+			<router-link to="/home" class="button">
 				<span class="material-icons">home</span>
 				<span class="text">หน้าหลัก</span>
 			</router-link>

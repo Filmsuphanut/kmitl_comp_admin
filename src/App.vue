@@ -1,6 +1,8 @@
 <template>
 	<div class="position-fixed sticky-top">
-		<SideBar/>
+		<div v-if="checkAuth()">
+			<SideBar/>
+		</div>
 	</div>
 	<div class="app">
 		<router-view/>
@@ -11,14 +13,46 @@
 <script>
 // @ is an alias to /src
 import SideBar from '@/components/SideBar.vue'
-//import News from '@/views/News.vue'
+import router from '@/router';
+import { useRouter } from 'vue-router';
+import { computed } from "vue";
+//import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
+  setup () {
+    const currentRoute = computed(() => {
+      return useRouter().currentRoute.value.name;
+    })
+    return {currentRoute}
+  },
   components: {
-    //News
 	SideBar
-  }
+  },
+  methods:{
+	checkAuth(){
+		//let user = mapGetters(['getCurrentUser']).val
+		let user = this.$store.getters.getCurrentUser
+		console.log('current user',user)
+		return user != ""? true : false
+
+	},
+
+  },
+  created(){
+	if (this.checkAuth() == false) {
+		router.push({ path: '/login'})
+	}else{
+		router.push({ path: '/home'})
+	}
+  }, 
+//   watch: {
+//     $route(to, from) {
+// 		if (this.checkAuth() == false) {
+
+// 		}
+//     }
+//   }
 }
 </script>
 

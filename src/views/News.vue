@@ -22,16 +22,16 @@
     </div>
   </div>
 
-  <div class="content" style="height: 2000px;">
+  <div class="content">
 
-    <div v-for="neww in News" v-bind:key="neww" class="card shadow-sm mt-4" style="height: 320px;">
+    <div v-for="neww in News" v-bind:key="neww" class="card shadow-sm mt-4 mb-4" style="height: 320px;">
       <div class="row mt-3 ms-2">
         <div class="col-5 d-flex flex-column">
           <img class="pic" :src="neww.imageURL" /> 
         </div>
-        <div class="col-6 mt-1 d-flex flex-column">
-          <h4 class="text text-start">{{neww.Header}}</h4>
-          <p class="text text-start">{{neww.Body.length <= 250 ? neww.Body : neww.Body.substring(0,240) + "....."}}</p>
+        <div class="col-6 d-flex flex-column">
+          <h4 class="text text-start">{{neww.Header.length <= 32 ? neww.Header : neww.Header.substring(0,32) + "..."}}</h4>
+          <p class="text text-start">{{neww.Body.length <= 230 ? neww.Body : neww.Body.substring(0,230) + "....."}}</p>
         </div>
       </div>
       <div class="row">
@@ -70,6 +70,15 @@ export default {
   },
   methods:{
     callNewsData(){
+
+      for (let i =0 ; i < 10 ; i++){
+        this.News.push({
+        imageURL: "https://bk-review.com/wp-content/uploads/2018/08/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88-%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B1%E0%B8%A5%E0%B8%9E%E0%B8%A5%E0%B8%B2%E0%B8%8B%E0%B8%B2-%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A3%E0%B8%B2%E0%B8%A1-2-6-of-27.jpg",
+        Header: "พฤกษาช้อยวิสุทธิท่านหญิงน้อยKusanali",
+        Body: "ไม่ว่าจะใส่ใจเกินไปก็ดี หรือจะมอบความรักให้มากเกินไปก็ช่าง และถึงจะมีพฤติกรรมที่บกพร่อง แต่ฉันรับรู้ถึงความรับผิดชอบของเธอในฐานะเทพแห่ง Sumeru เป็นเรื่องที่น่ายกย่อง ขนาดเทพที่อายุน้อยที่สุดยังทำได้ ตรงข้ามกับคนประสาทบางคน — Neuvillette ผู้พิพากษาสูงสุดแห่ง Fontaine — Neuvillette ผู้พิพากษาสูงสุดแห่ง Fontaine"
+        })
+      }
+
       this.News.push({
         imageURL: "https://scontent.fbkk5-4.fna.fbcdn.net/v/t39.30808-6/243067731_1753991538324298_8549916390031069303_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFbOjmfKP4MS9AanpLG0Mecz3COCiw7G_3PcI4KLDsb_b3lNo4UckEk-xq4oWt0OCoyzWVMYa03GRCiTwnVSNUV&_nc_ohc=i0nfMX_AkFMAX-9r_xl&_nc_ht=scontent.fbkk5-4.fna&oh=00_AfBu9Zzy_0omMc_41RcTytJP7PtuIpDpm9sMZtoVrUgJ0g&oe=63708403",
         Header: "สุขสันต์วันเกิดนะเต่า <3 !!",
@@ -91,7 +100,9 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss" scoped>
+
+
  /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-26 { font-size: 26px; }
